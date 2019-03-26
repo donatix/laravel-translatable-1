@@ -504,7 +504,7 @@ trait Translatable
         $modelName = $this->getTranslationModelName();
         $translation = new $modelName();
         $translation->setAttribute($this->getLocaleKey(), $locale);
-        $this->translations->add($translation);
+        $translation->{$this->getForeignKey()} = $this->id;
 
         return $translation;
     }
